@@ -1,6 +1,17 @@
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+const Card = ({ children }) => (
+  <div className="rounded-2xl shadow p-6 bg-white dark:bg-slate-800">{children}</div>
+);
+
+const Button = ({ children, className, ...props }) => (
+  <button
+    {...props}
+    className={`px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white ${className}`}
+  >
+    {children}
+  </button>
+);
+
 import {
   Briefcase,
   BarChart3,
@@ -169,3 +180,4 @@ export default function App() {
     </div>
   );
 }
+
