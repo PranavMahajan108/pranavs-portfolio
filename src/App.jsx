@@ -1,17 +1,5 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-const Card = ({ children }) => (
-  <div className="rounded-2xl shadow p-6 bg-white dark:bg-slate-800">{children}</div>
-);
-
-const Button = ({ children, className, ...props }) => (
-  <button
-    {...props}
-    className={`px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white ${className}`}
-  >
-    {children}
-  </button>
-);
-
 import {
   Briefcase,
   BarChart3,
@@ -22,7 +10,21 @@ import {
   Linkedin,
   Moon,
 } from "lucide-react";
-import { useState } from "react";
+
+// Simple Card Component
+const Card = ({ children }) => (
+  <div className="rounded-2xl shadow p-6 bg-white dark:bg-slate-800">{children}</div>
+);
+
+// Simple Button Component
+const Button = ({ children, className, ...props }) => (
+  <button
+    {...props}
+    className={`px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white ${className}`}
+  >
+    {children}
+  </button>
+);
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -45,11 +47,7 @@ export default function App() {
                 Data Analyst | Spend Analytics | Business Intelligence
               </p>
             </div>
-            <Button
-              variant="secondary"
-              className="rounded-xl"
-              onClick={() => setDark(!dark)}
-            >
+            <Button onClick={() => setDark(!dark)}>
               <Moon className="h-4 w-4" />
             </Button>
           </div>
@@ -75,35 +73,29 @@ export default function App() {
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-2xl font-semibold mb-10">Core Skills</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="rounded-2xl shadow-sm">
-                <CardContent className="p-6">
-                  <BarChart3 className="mb-4 text-indigo-600" />
-                  <h3 className="font-semibold mb-2">Spend Analytics</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
-                    Spend visibility, category analysis, supplier consolidation,
-                    and savings opportunity identification.
-                  </p>
-                </CardContent>
+              <Card>
+                <BarChart3 className="mb-4 text-indigo-600" />
+                <h3 className="font-semibold mb-2">Spend Analytics</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
+                  Spend visibility, category analysis, supplier consolidation, and
+                  savings opportunity identification.
+                </p>
               </Card>
-              <Card className="rounded-2xl shadow-sm">
-                <CardContent className="p-6">
-                  <Database className="mb-4 text-indigo-600" />
-                  <h3 className="font-semibold mb-2">Data & Tools</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
-                    Advanced Excel, Alteryx workflows, Spenddata dashboards,
-                    data quality checks, and flat file management.
-                  </p>
-                </CardContent>
+              <Card>
+                <Database className="mb-4 text-indigo-600" />
+                <h3 className="font-semibold mb-2">Data & Tools</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
+                  Advanced Excel, Alteryx workflows, Spenddata dashboards, data
+                  quality checks, and flat file management.
+                </p>
               </Card>
-              <Card className="rounded-2xl shadow-sm">
-                <CardContent className="p-6">
-                  <Briefcase className="mb-4 text-indigo-600" />
-                  <h3 className="font-semibold mb-2">Business Intelligence</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
-                    KPI reporting, executive-ready dashboards, stakeholder
-                    communication, and insights storytelling.
-                  </p>
-                </CardContent>
+              <Card>
+                <Briefcase className="mb-4 text-indigo-600" />
+                <h3 className="font-semibold mb-2">Business Intelligence</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
+                  KPI reporting, executive-ready dashboards, stakeholder
+                  communication, and insights storytelling.
+                </p>
               </Card>
             </div>
           </div>
@@ -113,26 +105,22 @@ export default function App() {
         <section className="max-w-6xl mx-auto px-6 py-16">
           <h2 className="text-2xl font-semibold mb-10">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="rounded-2xl shadow-sm">
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-2">Enterprise Spend Dashboard</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
-                  Built interactive dashboards to analyze supplier-wise and
-                  category-wise spend, enabling leadership to track cost trends
-                  and optimization opportunities.
-                </p>
-                <p className="text-xs text-slate-500">Tools: Excel, Spenddata</p>
-              </CardContent>
+            <Card>
+              <h3 className="font-semibold text-lg mb-2">Enterprise Spend Dashboard</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+                Built interactive dashboards to analyze supplier-wise and
+                category-wise spend, enabling leadership to track cost trends
+                and optimization opportunities.
+              </p>
+              <p className="text-xs text-slate-500">Tools: Excel, Spenddata</p>
             </Card>
-            <Card className="rounded-2xl shadow-sm">
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-2">Rebate Analysis & QC Framework</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
-                  Designed rebate analysis workflows, validated outputs using QC
-                  trackers, and ensured compliance with supplier agreements.
-                </p>
-                <p className="text-xs text-slate-500">Tools: Alteryx, Excel</p>
-              </CardContent>
+            <Card>
+              <h3 className="font-semibold text-lg mb-2">Rebate Analysis & QC Framework</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+                Designed rebate analysis workflows, validated outputs using QC
+                trackers, and ensured compliance with supplier agreements.
+              </p>
+              <p className="text-xs text-slate-500">Tools: Alteryx, Excel</p>
             </Card>
           </div>
         </section>
@@ -144,7 +132,7 @@ export default function App() {
             <p className="text-slate-600 dark:text-slate-400 mb-6">
               Download my resume to learn more about my professional journey.
             </p>
-            <Button className="rounded-xl bg-indigo-600 hover:bg-indigo-500">
+            <Button>
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Button>
           </div>
@@ -155,19 +143,18 @@ export default function App() {
           <div className="max-w-6xl mx-auto px-6 text-center">
             <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
             <p className="text-slate-400 mb-6">
-              Open to analytics roles, consulting opportunities, and
-              collaboration.
+              Open to analytics roles, consulting opportunities, and collaboration.
             </p>
             <div className="flex justify-center gap-4 mb-6">
-              <Button variant="secondary" className="rounded-xl">
-                <Linkedin className="h-4 w-4" />
+              <Button className="flex items-center gap-2">
+                <Linkedin className="h-4 w-4" /> LinkedIn
               </Button>
-              <Button variant="secondary" className="rounded-xl">
-                <Github className="h-4 w-4" />
+              <Button className="flex items-center gap-2">
+                <Github className="h-4 w-4" /> GitHub
               </Button>
             </div>
-            <Button className="rounded-xl bg-indigo-600 hover:bg-indigo-500">
-              <Mail className="mr-2 h-4 w-4" /> Contact Me
+            <Button className="flex items-center gap-2">
+              <Mail className="h-4 w-4" /> Contact Me
             </Button>
           </div>
         </section>
@@ -180,4 +167,3 @@ export default function App() {
     </div>
   );
 }
-
